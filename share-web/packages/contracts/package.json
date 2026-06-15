@@ -1,0 +1,20 @@
+{
+  "name": "@dify/contracts",
+  "type": "module",
+  "version": "0.0.0-private",
+  "private": true,
+  "exports": {
+    "./api/*": {
+      "types": "./generated/api/*.ts",
+      "import": "./generated/api/*.ts"
+    },
+    "./enterprise/*": {
+      "types": "./generated/enterprise/*.ts",
+      "import": "./generated/enterprise/*.ts"
+    }
+  },
+  "dependencies": {
+    "@orpc/contract": "1.14.5",
+    "zod": "4.4.3"
+  }
+}

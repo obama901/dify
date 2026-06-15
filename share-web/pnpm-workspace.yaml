@@ -1,0 +1,5 @@
+packages:
+  - packages/*
+allowBuilds:
+  canvas: false
+  sharp: false
