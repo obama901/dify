@@ -1,7 +1,6 @@
 import type { ReactNode } from 'react'
 import { cn } from '@langgenius/dify-ui/cn'
 import { useTranslation } from 'react-i18next'
-import DifyLogo from '@/app/components/base/logo/dify-logo'
 
 type FormStatusCardProps = {
   iconClassName: string
@@ -36,12 +35,6 @@ const FormStatusCard = ({
               {t('humanInput.submissionID', { id: submissionID, ns: 'share' })}
             </div>
           )}
-        </div>
-        <div className="flex flex-row-reverse px-2 py-3">
-          <div className="flex shrink-0 items-center gap-1.5 px-1">
-            <div className="system-2xs-medium-uppercase text-text-tertiary">{t('chat.poweredBy', { ns: 'share' })}</div>
-            <DifyLogo size="small" />
-          </div>
         </div>
       </div>
     </div>

@@ -10,7 +10,6 @@ import { useTranslation } from 'react-i18next'
 import SavedItems from '@/app/components/app/text-generate/saved-items'
 import AppIcon from '@/app/components/base/app-icon'
 import Badge from '@/app/components/base/badge'
-import DifyLogo from '@/app/components/base/logo/dify-logo'
 import { appDefaultIconBackground } from '@/config'
 import { AccessMode } from '@/models/access-control'
 import MenuDropdown from './menu-dropdown'
@@ -64,7 +63,6 @@ const TextGenerationSidebar: FC<TextGenerationSidebarProps> = ({
   runControl,
   savedMessages,
   siteInfo,
-  systemFeatures,
   textToSpeechConfig,
   visionConfig,
 }) => {
@@ -154,22 +152,6 @@ const TextGenerationSidebar: FC<TextGenerationSidebarProps> = ({
           </TabsPanel>
         )}
       </div>
-      {!customConfig?.remove_webapp_brand && (
-        <div
-          className={cn(
-            'flex shrink-0 items-center gap-1.5 bg-components-panel-bg py-3',
-            isPC ? 'px-8' : 'px-4',
-            !isPC && resultExisted && 'rounded-b-2xl border-b-[0.5px] border-divider-regular',
-          )}
-        >
-          <div className="system-2xs-medium-uppercase text-text-tertiary">{t('chat.poweredBy', { ns: 'share' })}</div>
-          {systemFeatures.branding.enabled && systemFeatures.branding.workspace_logo
-            ? <img src={systemFeatures.branding.workspace_logo} alt="logo" className="block h-5 w-auto" />
-            : customConfig?.replace_webapp_logo
-              ? <img src={customConfig.replace_webapp_logo} alt="logo" className="block h-5 w-auto" />
-              : <DifyLogo size="small" />}
-        </div>
-      )}
     </Tabs>
   )
 }

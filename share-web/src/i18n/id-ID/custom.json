@@ -15,8 +15,6 @@
   "upload": "Unggah",
   "uploadedFail": "Unggahan gambar gagal, silakan unggah ulang.",
   "uploading": "Mengunggah...",
-  "webapp.changeLogo": "Ubah Logo Merek",
   "webapp.changeLogoTip": "Format SVG atau PNG dengan ukuran minimum 40x40px",
-  "webapp.removeBrand": "Hapus Branding Dify",
   "webapp.title": "Kustomisasi Branding Aplikasi Web"
 }

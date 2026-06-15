@@ -6,12 +6,10 @@ import { Button } from '@langgenius/dify-ui/button'
 import { cn } from '@langgenius/dify-ui/cn'
 import { produce } from 'immer'
 import { useMemo, useState } from 'react'
-import { useTranslation } from 'react-i18next'
 import AppIcon from '@/app/components/base/app-icon'
 import ContentItem from '@/app/components/base/chat/chat/answer/human-input-content/content-item'
 import ExpirationTime from '@/app/components/base/chat/chat/answer/human-input-content/expiration-time'
 import { getButtonStyle, getRenderedFormInputs, hasInvalidRequiredHumanInput, initializeInputs, splitByOutputVar } from '@/app/components/base/chat/chat/answer/human-input-content/utils'
-import DifyLogo from '@/app/components/base/logo/dify-logo'
 
 type LoadedFormContentProps = {
   formData: FormData
@@ -24,7 +22,6 @@ const LoadedFormContent = ({
   isSubmitting,
   onSubmit,
 }: LoadedFormContentProps) => {
-  const { t } = useTranslation()
   const renderedFormInputs = getRenderedFormInputs(formData.inputs, formData.form_content)
   const [inputs, setInputs] = useState<Record<string, HumanInputFieldValue>>(() =>
     initializeInputs(renderedFormInputs, formData.resolved_default_values),
@@ -83,12 +80,6 @@ const LoadedFormContent = ({
             ))}
           </div>
           <ExpirationTime expirationTime={formData.expiration_time * 1000} />
-        </div>
-        <div className="flex flex-row-reverse px-2 py-3">
-          <div className="flex shrink-0 items-center gap-1.5 px-1">
-            <div className="system-2xs-medium-uppercase text-text-tertiary">{t('chat.poweredBy', { ns: 'share' })}</div>
-            <DifyLogo size="small" />
-          </div>
         </div>
       </div>
     </div>

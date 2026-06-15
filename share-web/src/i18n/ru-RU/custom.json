@@ -15,8 +15,6 @@
   "upload": "Загрузить",
   "uploadedFail": "Ошибка загрузки изображения, пожалуйста изображение, загрузите еще раз.",
   "uploading": "Загрузка",
-  "webapp.changeLogo": "Изменить изображение бренда Powered by",
   "webapp.changeLogoTip": "Формат SVG или PNG с минимальным размером 40x40px",
-  "webapp.removeBrand": "Удалить Powered by Dify",
   "webapp.title": "Настроить бренд веб-приложения"
 }

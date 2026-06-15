@@ -2,15 +2,12 @@ import type { FC } from 'react'
 import type { Theme } from '../theme/theme-context'
 import { cn } from '@langgenius/dify-ui/cn'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@langgenius/dify-ui/tooltip'
-import { useSuspenseQuery } from '@tanstack/react-query'
 import * as React from 'react'
 import { useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import ActionButton from '@/app/components/base/action-button'
 import ViewFormDropdown from '@/app/components/base/chat/embedded-chatbot/inputs-form/view-form-dropdown'
 import Divider from '@/app/components/base/divider'
-import DifyLogo from '@/app/components/base/logo/dify-logo'
-import { systemFeaturesQueryOptions } from '@/features/system-features/client'
 import { isClient } from '@/utils/client'
 import {
   useEmbeddedChatbotContext,
@@ -35,7 +32,6 @@ const Header: FC<IHeaderProps> = ({
 }) => {
   const { t } = useTranslation()
   const {
-    appData,
     currentConversationId,
     inputsForms,
     allInputsHidden,
@@ -45,7 +41,6 @@ const Header: FC<IHeaderProps> = ({
   const [parentOrigin, setParentOrigin] = useState('')
   const [showToggleExpandButton, setShowToggleExpandButton] = useState(false)
   const [expanded, setExpanded] = useState(false)
-  const { data: systemFeatures } = useSuspenseQuery(systemFeaturesQueryOptions())
 
   const handleMessageReceived = useCallback((event: MessageEvent) => {
     let currentParentOrigin = parentOrigin
@@ -86,26 +81,6 @@ const Header: FC<IHeaderProps> = ({
     return (
       <div className="flex h-14 shrink-0 items-center justify-end p-3">
         <div className="flex items-center gap-1">
-          {/* powered by */}
-          <div className="shrink-0">
-            {!appData?.custom_config?.remove_webapp_brand && (
-              <div
-                className={cn(
-                  'flex shrink-0 items-center gap-1.5 px-2',
-                )}
-                data-testid="webapp-brand"
-              >
-                <div className="system-2xs-medium-uppercase text-text-tertiary">{t('chat.poweredBy', { ns: 'share' })}</div>
-                {
-                  systemFeatures.branding.enabled && systemFeatures.branding.workspace_logo
-                    ? <img src={systemFeatures.branding.workspace_logo} alt="logo" className="block h-5 w-auto" />
-                    : appData?.custom_config?.replace_webapp_logo
-                      ? <img src={`${appData?.custom_config?.replace_webapp_logo}`} alt="logo" className="block h-5 w-auto" />
-                      : <DifyLogo size="small" />
-                }
-              </div>
-            )}
-          </div>
           {currentConversationId && (
             <Divider type="vertical" className="h-3.5" />
           )}

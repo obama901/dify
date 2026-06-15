@@ -9,6 +9,7 @@ import { cva } from 'class-variance-authority'
 import { init } from 'emoji-mart'
 import * as React from 'react'
 import { useRef } from 'react'
+import { PUBLIC_API_PREFIX } from '@/config'
 
 init({ data })
 
@@ -90,6 +91,29 @@ const EditIconVariants = cva(
     },
   },
 )
+
+const getPublicFileBaseUrl = () => {
+  try {
+    return new URL(PUBLIC_API_PREFIX).origin
+  }
+  catch {
+    return PUBLIC_API_PREFIX.replace(/\/api\/?$/, '').replace(/\/$/, '')
+  }
+}
+
+const resolveImageUrl = (url: string | null | undefined) => {
+  if (!url)
+    return undefined
+
+  if (/^(?:[a-z][a-z\d+\-.]*:)?\/\//i.test(url) || url.startsWith('data:') || url.startsWith('blob:'))
+    return url
+
+  if (url.startsWith('/files/') || url.startsWith('files/'))
+    return `${getPublicFileBaseUrl()}/${url.replace(/^\/+/, '')}`
+
+  return url
+}
+
 const AppIcon: FC<AppIconProps> = ({
   size = 'medium',
   rounded = false,
@@ -104,6 +128,7 @@ const AppIcon: FC<AppIconProps> = ({
   showEditIcon = false,
 }) => {
   const isValidImageIcon = iconType === 'image' && imageUrl
+  const resolvedImageUrl = resolveImageUrl(imageUrl)
   const emojiIcon = (icon && icon !== '') ? icon : '🤖'
   const Icon = <em-emoji key={emojiIcon} id={emojiIcon} />
   const wrapperRef = useRef<HTMLSpanElement>(null)
@@ -118,7 +143,7 @@ const AppIcon: FC<AppIconProps> = ({
     >
       {
         isValidImageIcon
-          ? <img src={imageUrl} className="size-full" alt="app icon" />
+          ? <img src={resolvedImageUrl} className="size-full" alt="app icon" />
           : (innerIcon || Icon)
       }
       {

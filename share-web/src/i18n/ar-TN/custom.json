@@ -15,8 +15,6 @@
   "upload": "تحميل",
   "uploadedFail": "فشل تحميل الصورة، يرجى إعادة التحميل.",
   "uploading": "جاري التحميل",
-  "webapp.changeLogo": "تغيير صورة Powered by Brand",
   "webapp.changeLogoTip": "تنسيق SVG أو PNG بحجم أدنى 40x40px",
-  "webapp.removeBrand": "إزالة Powered by Dify",
   "webapp.title": "تخصيص العلامة التجارية لتطبيق الويب"
 }
