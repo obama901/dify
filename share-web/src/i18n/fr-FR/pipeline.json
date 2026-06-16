@@ -1,6 +1,6 @@
 {
   "common.confirmPublish": "Confirmer la publication",
-  "common.confirmPublishContent": "Une fois le pipeline de connaissances publié avec succès, la structure de blocs de cette base de connaissances ne peut pas être modifiée. Êtes-vous sûr de vouloir le publier ?",
+  "common.confirmPublishContent": "Une fois le pipeline de connaissances publié avec succès, la structure de blocs de cette base de connaissances ne peut pas être modifiée. Êtes-vous sûr de vouloir le publier?",
   "common.goToAddDocuments": "Aller à ajouter des documents",
   "common.preparingDataSource": "Préparation de la source de données",
   "common.processing": "Traitement",

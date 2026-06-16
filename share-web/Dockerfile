@@ -1,0 +1,70 @@
+FROM node:22-bookworm-slim AS base
+
+ARG NPM_REGISTRY=https://registry.npmmirror.com
+
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV NPM_CONFIG_REGISTRY=$NPM_REGISTRY
+ENV npm_config_registry=$NPM_REGISTRY
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+
+RUN corepack enable \
+  && corepack prepare pnpm@11.5.2 --activate \
+  && pnpm config set registry "$NPM_REGISTRY"
+
+WORKDIR /app
+
+FROM base AS deps
+
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY packages ./packages
+RUN pnpm install --frozen-lockfile
+
+FROM base AS builder
+
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+
+ARG NEXT_PUBLIC_API_PREFIX
+ARG NEXT_PUBLIC_PUBLIC_API_PREFIX
+ARG NEXT_PUBLIC_BASE_PATH=
+ARG NEXT_PUBLIC_DEPLOY_ENV=PRODUCTION
+ARG NEXT_PUBLIC_EDITION=SELF_HOSTED
+ARG NEXT_PUBLIC_ENABLE_EMAIL_CODE_LOGIN=true
+ARG NEXT_PUBLIC_ENABLE_EMAIL_PASSWORD_LOGIN=true
+ARG NEXT_PUBLIC_ENABLE_SOCIAL_OAUTH_LOGIN=true
+ARG NEXT_PUBLIC_SUPPORT_MAIL_LOGIN=false
+
+ENV NEXT_PUBLIC_API_PREFIX=$NEXT_PUBLIC_API_PREFIX
+ENV NEXT_PUBLIC_PUBLIC_API_PREFIX=$NEXT_PUBLIC_PUBLIC_API_PREFIX
+ENV NEXT_PUBLIC_BASE_PATH=$NEXT_PUBLIC_BASE_PATH
+ENV NEXT_PUBLIC_DEPLOY_ENV=$NEXT_PUBLIC_DEPLOY_ENV
+ENV NEXT_PUBLIC_EDITION=$NEXT_PUBLIC_EDITION
+ENV NEXT_PUBLIC_ENABLE_EMAIL_CODE_LOGIN=$NEXT_PUBLIC_ENABLE_EMAIL_CODE_LOGIN
+ENV NEXT_PUBLIC_ENABLE_EMAIL_PASSWORD_LOGIN=$NEXT_PUBLIC_ENABLE_EMAIL_PASSWORD_LOGIN
+ENV NEXT_PUBLIC_ENABLE_SOCIAL_OAUTH_LOGIN=$NEXT_PUBLIC_ENABLE_SOCIAL_OAUTH_LOGIN
+ENV NEXT_PUBLIC_SUPPORT_MAIL_LOGIN=$NEXT_PUBLIC_SUPPORT_MAIL_LOGIN
+
+RUN pnpm build
+
+FROM node:22-bookworm-slim AS runner
+
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV HOSTNAME=0.0.0.0
+ENV PORT=3000
+
+WORKDIR /app
+
+RUN groupadd --system --gid 1001 nodejs \
+  && useradd --system --uid 1001 --gid nodejs nextjs
+
+COPY --from=builder --chown=nextjs:nodejs /app/public ./public
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+
+USER nextjs
+
+EXPOSE 3000
+
+CMD ["node", "server.js"]

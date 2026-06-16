@@ -330,7 +330,7 @@
   "variableConfig.errorMsg.varNameCanBeRepeat": "Tên biến không được trùng lặp",
   "variableConfig.fieldType": "Loại trường",
   "variableConfig.file.audio.name": "Âm thanh",
-  "variableConfig.file.custom.createPlaceholder": "  Phần mở rộng tệp, ví dụ: .doc",
+  "variableConfig.file.custom.createPlaceholder": " Phần mở rộng tệp, ví dụ:.doc",
   "variableConfig.file.custom.description": "Chỉ định các loại tệp khác.",
   "variableConfig.file.custom.name": "Các loại tệp khác",
   "variableConfig.file.document.name": "Tài liệu",

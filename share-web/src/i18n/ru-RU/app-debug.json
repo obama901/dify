@@ -330,7 +330,7 @@
   "variableConfig.errorMsg.varNameCanBeRepeat": "Имя переменной не может повторяться",
   "variableConfig.fieldType": "Тип поля",
   "variableConfig.file.audio.name": "Аудио",
-  "variableConfig.file.custom.createPlaceholder": "  Расширение файла, например .doc",
+  "variableConfig.file.custom.createPlaceholder": " Расширение файла, например.doc",
   "variableConfig.file.custom.description": "Укажите другие типы файлов.",
   "variableConfig.file.custom.name": "Другие типы файлов",
   "variableConfig.file.document.name": "Документ",

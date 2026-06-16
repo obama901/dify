@@ -330,7 +330,7 @@
   "variableConfig.errorMsg.varNameCanBeRepeat": "اسم المتغير لا يمكن تكراره",
   "variableConfig.fieldType": "نوع الحقل",
   "variableConfig.file.audio.name": "صوت",
-  "variableConfig.file.custom.createPlaceholder": "+ ملحق الملف، مثل .doc",
+  "variableConfig.file.custom.createPlaceholder": "+ ملحق الملف، مثل.doc",
   "variableConfig.file.custom.description": "تحديد أنواع ملفات أخرى.",
   "variableConfig.file.custom.name": "أنواع ملفات أخرى",
   "variableConfig.file.document.name": "مستند",

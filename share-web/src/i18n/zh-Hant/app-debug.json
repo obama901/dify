@@ -330,7 +330,7 @@
   "variableConfig.errorMsg.varNameCanBeRepeat": "變數名稱不能重複",
   "variableConfig.fieldType": "欄位型別",
   "variableConfig.file.audio.name": "音訊",
-  "variableConfig.file.custom.createPlaceholder": "檔擴展名，例如 .doc",
+  "variableConfig.file.custom.createPlaceholder": "檔擴展名，例如.doc",
   "variableConfig.file.custom.description": "指定其他檔案類型。",
   "variableConfig.file.custom.name": "其他文件類型",
   "variableConfig.file.document.name": "公文",

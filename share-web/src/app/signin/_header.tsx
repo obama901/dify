@@ -9,10 +9,6 @@ import dynamic from '@/next/dynamic'
 import LocaleMenu from './_locale-menu'
 
 // Avoid rendering the logo and theme selector on the server
-const DifyLogo = dynamic(() => import('@/app/components/base/logo/dify-logo'), {
-  ssr: false,
-  loading: () => <div className="h-7 w-16 bg-transparent" />,
-})
 const ThemeSelector = dynamic(() => import('@/app/components/base/theme-selector'), {
   ssr: false,
   loading: () => <div className="size-8 bg-transparent" />,
@@ -32,7 +28,7 @@ const Header = () => {
               alt="logo"
             />
           )
-        : <DifyLogo size="large" />}
+        : <div className="system-xl-semibold text-text-primary">AI App</div>}
       <div className="flex items-center gap-1">
         <LocaleMenu
           value={locale}

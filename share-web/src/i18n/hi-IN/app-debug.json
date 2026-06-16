@@ -330,7 +330,7 @@
   "variableConfig.errorMsg.varNameCanBeRepeat": "वेरिएबल नाम दोहराया नहीं जा सकता",
   "variableConfig.fieldType": "फ़ील्ड प्रकार",
   "variableConfig.file.audio.name": "ऑडियो",
-  "variableConfig.file.custom.createPlaceholder": "फ़ाइल एक्सटेंशन, जैसे .doc",
+  "variableConfig.file.custom.createPlaceholder": "फ़ाइल एक्सटेंशन, जैसे.doc",
   "variableConfig.file.custom.description": "अन्य फ़ाइल प्रकार निर्दिष्ट करें।",
   "variableConfig.file.custom.name": "अन्य फ़ाइल प्रकार",
   "variableConfig.file.document.name": "दस्तावेज़",

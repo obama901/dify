@@ -30,7 +30,7 @@ const DifyLogo: FC<DifyLogoProps> = ({
   style = 'default',
   size = 'medium',
   className,
-  alt = 'Dify logo',
+  alt = 'Application logo',
 }) => {
   const { theme } = useTheme()
   const themedStyle = (theme === 'dark' && style === 'default') ? 'monochromeWhite' : style

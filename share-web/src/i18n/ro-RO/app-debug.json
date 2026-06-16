@@ -330,7 +330,7 @@
   "variableConfig.errorMsg.varNameCanBeRepeat": "Numele variabilei nu poate fi repetat",
   "variableConfig.fieldType": "Tip de câmp",
   "variableConfig.file.audio.name": "Audio",
-  "variableConfig.file.custom.createPlaceholder": "  Extensia fișierului, de exemplu .doc",
+  "variableConfig.file.custom.createPlaceholder": " Extensia fișierului, de exemplu.doc",
   "variableConfig.file.custom.description": "Specificați alte tipuri de fișiere.",
   "variableConfig.file.custom.name": "Alte tipuri de fișiere",
   "variableConfig.file.document.name": "Document",

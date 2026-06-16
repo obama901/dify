@@ -169,42 +169,17 @@ const NormalForm = () => {
               </div>
             </>
           )}
-          {!systemFeatures.branding.enabled && (
-            <>
-              <div className="mt-2 block w-full system-xs-regular text-text-tertiary">
-                {t('tosDesc', { ns: 'login' })}
-              &nbsp;
-                <Link
-                  className="system-xs-medium text-text-secondary hover:underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://dify.ai/terms"
-                >
-                  {t('tos', { ns: 'login' })}
-                </Link>
-              &nbsp;&&nbsp;
-                <Link
-                  className="system-xs-medium text-text-secondary hover:underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://dify.ai/privacy"
-                >
-                  {t('pp', { ns: 'login' })}
-                </Link>
-              </div>
-              {IS_CE_EDITION && (
-                <div className="w-hull mt-2 block system-xs-regular text-text-tertiary">
-                  {t('goToInit', { ns: 'login' })}
-              &nbsp;
-                  <Link
-                    className="system-xs-medium text-text-secondary hover:underline"
-                    href="/install"
-                  >
-                    {t('setAdminAccount', { ns: 'login' })}
-                  </Link>
-                </div>
-              )}
-            </>
+          {!systemFeatures.branding.enabled && IS_CE_EDITION && (
+            <div className="w-hull mt-2 block system-xs-regular text-text-tertiary">
+              {t('goToInit', { ns: 'login' })}
+            &nbsp;
+              <Link
+                className="system-xs-medium text-text-secondary hover:underline"
+                href="/install"
+              >
+                {t('setAdminAccount', { ns: 'login' })}
+              </Link>
+            </div>
           )}
 
         </div>

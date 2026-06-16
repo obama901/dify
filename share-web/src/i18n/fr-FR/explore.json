@@ -7,7 +7,7 @@
   "apps.allCategories": "Tous",
   "apps.resetFilter": "Effacer le filtre",
   "apps.resultNum": "{{num}} résultats",
-  "apps.title": "Essayez les applications sélectionnées de Dify pour trouver des solutions d'IA pour votre entreprise",
+  "apps.title": "Essayez les applications sélectionnées de pour trouver des solutions d'IA pour votre entreprise",
   "banner.viewMore": "VOIR PLUS",
   "category.Agent": "Agent",
   "category.Assistant": "Assistant",
@@ -23,7 +23,7 @@
   "sidebar.action.rename": "Renommer",
   "sidebar.action.unpin": "Détacher",
   "sidebar.chat": "Discussion",
-  "sidebar.delete.content": "Êtes-vous sûr de vouloir supprimer cette application ?",
+  "sidebar.delete.content": "Êtes-vous sûr de vouloir supprimer cette application?",
   "sidebar.delete.title": "Supprimer l'application",
   "sidebar.noApps.description": "Les applications web publiées apparaîtront ici",
   "sidebar.noApps.learnMore": "En savoir plus",
@@ -36,5 +36,5 @@
   "tryApp.requirements": "Exigences",
   "tryApp.tabHeader.detail": "Détails d'orchestration",
   "tryApp.tabHeader.try": "Essayer",
-  "tryApp.tryInfo": "Ceci est une application exemple. Vous pouvez essayer jusqu'à 5 messages. Pour continuer à l'utiliser, cliquez sur \"Créer à partir de cette application exemple\" et configurez-la !"
+  "tryApp.tryInfo": "Ceci est une application exemple. Vous pouvez essayer jusqu'à 5 messages. Pour continuer à l'utiliser, cliquez sur \"Créer à partir de cette application exemple\" et configurez-la!"
 }
